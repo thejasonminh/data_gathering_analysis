@@ -20,31 +20,32 @@ bibliography: references.bib
 
 library(tidyverse)
 library(palmerpenguins)
-```
+library(httr)
+library(xml2)
 
+```
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point. 
-
-
+You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
 # Data {#sec-data}
 
-Our data is of penguins (@fig-bills).
+Our data is of penguins (and a NASA APOD pic) (@fig-bills).
 
 ```{r}
 #| label: fig-bills
 #| fig-cap: Bills of penguins
 #| echo: false
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+#ggplot(penguins, aes(x = island, fill = species)) +
+ # geom_bar(alpha = 0.8) +
+  # scale_fill_manual(values = c("darkorange","purple","cyan4"),
+    #                guide = "none") +
+  #theme_minimal() +
+  #facet_wrap(~species, ncol = 1) +
+  #coord_flip()
+knitr::include_graphics(here::here("inputs/budget_arduino.jpg"))
 ```
 
 Talk more about it.
@@ -67,9 +68,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 
-Talk way more about it. 
-
-
+Talk way more about it.
 
 # Model
 
@@ -79,10 +78,9 @@ $$ {#eq-bayes}
 
 @eq-bayes seems useful, eh?
 
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
+Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful.
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
-
 
 # Results
 
@@ -90,7 +88,7 @@ We can use maths by including latex between dollar signs, for instance $\theta$.
 
 ## First discussion point {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
 ## Second discussion point
 
@@ -104,15 +102,10 @@ Weaknesses and next steps should also be included.
 
 \appendix
 
-# Appendix {-}
-
+# Appendix {.unnumbered}
 
 # Additional details
 
-
 \newpage
 
-
 # References
-
-

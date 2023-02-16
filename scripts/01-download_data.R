@@ -1,22 +1,24 @@
-#### Preamble ####
-# Purpose: Downloads and saves the data from [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Data: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+  #### Preamble ####
+# Purpose: Downloads and saves the Feb 16 2023 APOD and to write it on Quarto
+# Author: Jason Ngo
+# Data: 16 February 2023
+# Contact: jason.ngo@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Any other information needed? The APOD URL
 
 
 #### Workspace setup ####
-library(opendatatoronto)
 library(tidyverse)
-# [...UPDATE THIS...]
+library(httr)
+library(xml2)
 
-#### Download data ####
-# [...ADD CODE HERE TO DOWNLOAD...]
+#### Identify URL ####
+NASA_APOD_20230216 <- GET("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2023-02-16")
 
-
+#### Save Data ####
+content(NASA_APOD_20230216)$url |>
+  download.file(destfile = "~/GitHub/data_gathering_analysis/inputs/NASA_APOD_20230216.jpg")
 
 #### Save data ####
 # [...UPDATE THIS...]
